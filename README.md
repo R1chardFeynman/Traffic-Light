@@ -18,7 +18,7 @@
 
 Написан на VueJS
 ## Установка
-1. >git clone
+1. >git clone https://github.com/R1chardFeynman/Traffic-Light
 
 2. >npm install
 

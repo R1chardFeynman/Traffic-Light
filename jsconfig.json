@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+  },
+  "typeAcquisition": {
+    "exclude": [ "dotenv", "source-map", ]
+  },
+  "exclude": ["node_modules", "dist"]
+}

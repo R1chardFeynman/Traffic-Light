@@ -64,17 +64,6 @@ export default {
     updateLights(currentColor);
     const prev = currentColor === "yellow" ? "red" : currentColor;
     updateTransitioning(currentColor, prev);
-    // Since I'm not using Vuex in this project I'm forced to implement
-    // state saving feature via the use of localStorage
-    // otherwise I'd be using vuex-persistedstate
-    if (localStorage.getItem("state")) {
-      const { transitioning, lights, lastColor } = JSON.parse(
-        localStorage.getItem("state")
-      );
-      this.$router.push(lastColor);
-      this.transitioning = transitioning;
-      this.lights = lights;
-    }
 
     setInterval(() => {
       this.transitioning.counter--;
@@ -82,12 +71,6 @@ export default {
   },
   watch: {
     "transitioning.counter": function (val) {
-      const localStorageState = {
-        lights: this.lights,
-        transitioning: this.transitioning,
-        lastColor: this.currentColor,
-      };
-      localStorage.setItem("state", JSON.stringify(localStorageState));
       if (val === 0) {
         const {
           $router,
